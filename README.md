@@ -80,4 +80,3 @@ We are now going to use the queue we just created as a buffer for client jobs. I
 
 a) Create additional API endpoints to let users push jobs to the job queue
 b) Implement a worker which role will be to pop jobs from the queue and send them to the devices.
-
