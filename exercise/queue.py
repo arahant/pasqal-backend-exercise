@@ -1,9 +1,9 @@
-from exception import ErrorEmptyQueue, ErrorInvalidData
+from errors import ErrorEmptyQueue, ErrorInvalidData
 import heapq
 
-class PriorityQueue():
+class ProcessQueue():
 
-    self __init__(self):
+    def __init__(self):
         self.queue = []
         self.time = 0
 

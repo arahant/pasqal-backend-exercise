@@ -5,7 +5,7 @@ import logging
 import threading
 from flask import Flask
 
-from exercise.queue import PriorityQueue
+from exercise.queue import ProcessQueue
 from exercise.api import API
 from exercise import utils
 from exercise.pool import DevicePool
@@ -19,8 +19,8 @@ app.config.from_object("config")
 app.config['LOGGING_LEVEL'] = logging.INFO
 app.logger.info("Scheduler inititalized!")
 
-queue = PriorityQueue()
-pool = DevicePool()
+device_pool = DevicePool()
+queue = ProcessQueue()
 
 if __name__ == '__main__':
     # Running the API calls asynchronously
