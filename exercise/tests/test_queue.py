@@ -1,6 +1,5 @@
 from exercise.queue import ProcessQueue
 
-
 def test_queue():
     q = ProcessQueue()
 

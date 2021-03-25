@@ -1,5 +1,6 @@
-from errors import ErrorEmptyQueue, ErrorInvalidData
+
 import heapq
+from exercise.errors import ErrorEmptyQueue, ErrorInvalidData
 
 class ProcessQueue():
 
@@ -16,7 +17,7 @@ class ProcessQueue():
             raise ErrorInvalidData('Invalid item')
 
         # if priority is NULL or NEGATIVE, throw exception
-        if not priority or priotity < 0:
+        if not priority or priority < 0:
             raise ErrorInvalidData('Invalid priority')
 
         self.time += 1
