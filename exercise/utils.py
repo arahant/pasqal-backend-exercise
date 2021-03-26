@@ -1,7 +1,7 @@
 import os
 import json
 from dataclasses import asdict
-from exception.errors import ErrorEmptyResult
+from exercise.errors import ErrorEmptyResult
 
 RESULTS_FILE = 'results.jsonl'
 

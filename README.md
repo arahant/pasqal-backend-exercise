@@ -65,7 +65,7 @@ Hint: Make sure the API server is running in an asynchronous way (e.g. using `th
 Our QPUs are a scarce resource: we don't have many of them and they are pretty slow. This means that the client request load will most likely be much higher than
 the rate at which we can treat their jobs. In order to handle the load, we will implement a priority queue.
 
-Instead of using the python queue module, implement your own [PriorityQueue](exercise/queue.py) class with the following specs:
+Instead of using the python queue module, implement your own [ProcessQueue](exercise/queue.py) class with the following specs:
 
 - Users can push items with a priority to the queue
 - When popping an item from the queue, we get the item with the highest priority. If there are many, we return the oldest.
