@@ -7,7 +7,7 @@ INSTRUCTIONS_SIZE = 1024
 
 @dataclass
 class Job():
-    id: str
+    job_id: str
     user_id: str
     program_id: int
     device_type: str
@@ -16,19 +16,19 @@ class Job():
     instructions: Any = field(default_factory=dict)
     result: str = None
 
-    def __init__(self, jid, uid, pid, type, prio):
+    def __init__(self, jid, uid, pid, device_type, prio):
         """
         :type jid: str
         :type uid: str
         :type pid: str
-        :type type: str
+        :type device_type: str
         :type prio: int
         :rtype: None
         """
-        self.id = jid
+        self.job_id = jid
         self.user_id = uid
         self.program_id = pid
-        self.device_type = type
+        self.device_type = device_type
         self.priority = prio
         self.result = None
         self.instructions = Job.get_randomised_instructions()
@@ -40,16 +40,16 @@ class Job():
     def serialize(self):
         """ Serializes a Job into a dictionary """
         return {
-            "id": self.id,
+            "job_id": self.job_id,
             "user_id": self.user_id,
             "program_id": self.program_id,
-            "type": self.device_type,
+            "device_type": self.device_type,
             "priority": self.priority
         }
 
 
 @dataclass
 class Program():
-    id: str
+    job_id: str
     device_type: str
     priority: int = 1

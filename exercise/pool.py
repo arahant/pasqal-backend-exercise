@@ -1,7 +1,7 @@
 
-from exercise.errors import ErrorDeviceAlreadyExists, ErrorDeviceNotFound, ErrorInvalidData
-from exercise.device import Device
 from typing import Dict
+from exercise.errors import ErrorDeviceAlreadyExists, ErrorInvalidData
+from exercise.device import Device
 
 class DevicePool():
 
@@ -17,9 +17,9 @@ class DevicePool():
         :type device: Device
         :rtype: None
         """
-        if device.id in self.devices:
-            raise ErrorDeviceAlreadyExists("Device {} already exists".format(device.id))
-        self.devices[device.id] = device
+        if device.device_id in self.devices:
+            raise ErrorDeviceAlreadyExists("Device {} already exists".format(device.device_id))
+        self.devices[device.device_id] = device
 
     def remove(self, device_id: str):
         """

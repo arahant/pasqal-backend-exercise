@@ -16,6 +16,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
-    install_requires=["flask", "Flask", "Flask-API", "flask-restplus", "pytest", "psycopg2-binary", "Werkzeug"],
+    install_requires=["flask", "Flask", "Flask-API", "flask-restplus", "pytest", "psycopg2-binary", "Werkzeug", "pylint"],
     python_requires=">=3.8.0",
 )

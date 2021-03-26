@@ -16,7 +16,6 @@ def handle_result(job):
     # Make sure the results directory exists
     os.makedirs('results', exist_ok=True)
 
-    with open(RESULTS_FILE, 'a+') as f:
-        f.write(json.dumps(asdict(job)))
-        f.write('\n')
-    return
+    with open(RESULTS_FILE, 'a+') as file:
+        file.write(json.dumps(asdict(job)))
+        file.write('\n')
