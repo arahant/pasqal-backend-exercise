@@ -13,3 +13,6 @@ class ErrorEmptyQueue(Error):
 
 class ErrorInvalidData(Error):
     pass
+
+class ErrorEmptyResult(Error):
+    pass

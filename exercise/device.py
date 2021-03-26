@@ -18,17 +18,22 @@ class Device():
     size: int
     state: DeviceState = None
 
+    """
+    A device (QPU) can have multiple properties such as
+    Quantum computing capacity, fidelity, systemic noise level, etc.
+    """
+
     device_calls = defaultdict(int)
 
-    def __init__(self, id, addr, type, size):
+    def __init__(self, did, addr, type, size):
         """
-        :type id: str
+        :type did: str
         :type addr: str
         :type type: str
         :type size: int
         :rtype: None
         """
-        self.id = id
+        self.id = did
         self.address = addr
         self.type = type
         self.size = size
@@ -44,6 +49,9 @@ class Device():
         }
 
     def send(self, instructions):
+        """
+        This method sends quantum computing instructions to the device.
+        """
         Device.call_device(self.id)
         return random.getrandbits(self.size)
 

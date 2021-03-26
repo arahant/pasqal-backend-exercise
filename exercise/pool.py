@@ -8,6 +8,9 @@ class DevicePool():
     # common devices' pool
     devices: Dict[str, Device]
 
+    def __init__(self):
+        self.devices = {}
+
     def add(self, device: Device):
         """
         Adds a device to the pool
@@ -15,7 +18,7 @@ class DevicePool():
         :rtype: None
         """
         if device.id in self.devices:
-            raise ErrorDeviceAlreadyExists("Device {} already exists".format(device.id)))
+            raise ErrorDeviceAlreadyExists("Device {} already exists".format(device.id))
         self.devices[device.id] = device
 
     def remove(self, device_id: str):
@@ -35,4 +38,12 @@ class DevicePool():
         :rtype: List[int]
         """
         # return [d for d in self.devices.values()]
-        return list(self.devices.keys())
+        return list(self.devices.values())
+
+    def search(self, device_id):
+        """
+        Checks if the device_id is in the pool
+        :type device_id: str
+        :rtype: Boolean
+        """
+        return device_id in self.devices
