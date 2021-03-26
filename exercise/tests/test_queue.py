@@ -1,6 +1,11 @@
+"""
+Testing ProcessQueue
+"""
+
 from exercise.queue import ProcessQueue
 
 def test_queue():
+    """Testing queue.py"""
     q = ProcessQueue()
 
     item1 = {'life': 42}

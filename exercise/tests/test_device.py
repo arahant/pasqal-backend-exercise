@@ -1,7 +1,11 @@
+"""
+Testing Device
+"""
 
 from exercise.device import Device
 
 def test_device():
+    """testing device object creation"""
     device1 = Device(12, "addr1", "type1", 21)
     assert device1.device_id == 12
 

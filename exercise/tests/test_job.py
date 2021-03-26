@@ -1,7 +1,11 @@
+"""
+Testing Job
+"""
 
 from exercise.job import Job
 
 def test_job():
+    """Testing job creation"""
     job1 = Job(12, "uid1", "prog11", "type1", 21)
     assert job1.job_id == 12
 

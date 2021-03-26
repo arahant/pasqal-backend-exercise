@@ -23,8 +23,9 @@ python3 exercise
 You can also launch the tests with
 
 ```bash
-pytest
+nosetests exercise/tests
 ```
+
 
 ## Definitions
 

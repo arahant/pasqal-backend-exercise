@@ -1,28 +1,28 @@
-
 import os
 import sys
 import logging
 import threading
-from flask import Flask
 
+from flask import Flask
 from exercise.queue import ProcessQueue
-from exercise.api import API
-from exercise import utils
 from exercise.pool import DevicePool
-from exercise.job import Job
-from exercise.worker import Worker
 
 # Create Flask application
 app = Flask(__name__)
-
 app.config.from_object("config")
 app.config['LOGGING_LEVEL'] = logging.INFO
 app.logger.info("Scheduler inititalized!")
 
-device_pool = DevicePool()
+# Create queue object
 queue = ProcessQueue()
 
-if __name__ == '__main__':
+# Create pool object
+device_pool = DevicePool()
+
+# if __name__ == '__main__':
+    # print('hello')
+    # from exercise.worker import Worker
+    # pass
     # Running the API calls asynchronously
     # api = API()
     # threading.Thread(target=api.run)
@@ -30,3 +30,4 @@ if __name__ == '__main__':
     # TODO:
     # worker = Worker()
     # worker.run()
+    # app.run()

@@ -137,4 +137,10 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# pytest
+.benchmarks
+
 .DS_Store
+
+# nosetests
+unittests.xml
