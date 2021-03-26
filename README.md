@@ -17,13 +17,18 @@ Then, install the package and run the [main function](exercise/__main__.py)
 
 ```bash
 python3 setup.py develop
-python3 exercise
 ```
 
 You can also launch the tests with
 
 ```bash
 nosetests exercise/tests
+```
+
+Running the flask app
+```
+FLASK_APP=exercise:app flask run
+./exercise/test.sh
 ```
 
 
