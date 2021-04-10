@@ -2,7 +2,7 @@
 import heapq
 from exercise.errors import ErrorEmptyQueue, ErrorInvalidData
 
-class PriorityQueue():
+class ProcessQueue():
 
     def __init__(self):
         self.queue = []

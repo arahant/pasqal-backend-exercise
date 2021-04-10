@@ -16,6 +16,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
-    install_requires=["pytest"],
+    install_requires=["Flask==1.1.2", "Flask-API==2.0", "flask-restplus==0.13.0", "psycopg2-binary==2.8.4", "Werkzeug==0.16.1", "pylint", "nose"],
     python_requires=">=3.8.0",
 )
