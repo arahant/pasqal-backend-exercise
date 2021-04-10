@@ -17,20 +17,14 @@ Then, install the package and run the [main function](exercise/__main__.py)
 
 ```bash
 python3 setup.py develop
+python3 exercise
 ```
 
 You can also launch the tests with
 
 ```bash
-nosetests exercise/tests
+pytest
 ```
-
-Running the flask app
-```
-FLASK_APP=exercise:app flask run
-./exercise/test.sh
-```
-
 
 ## Definitions
 
@@ -71,7 +65,7 @@ Hint: Make sure the API server is running in an asynchronous way (e.g. using `th
 Our QPUs are a scarce resource: we don't have many of them and they are pretty slow. This means that the client request load will most likely be much higher than
 the rate at which we can treat their jobs. In order to handle the load, we will implement a priority queue.
 
-Instead of using the python queue module, implement your own [ProcessQueue](exercise/queue.py) class with the following specs:
+Instead of using the python queue module, implement your own [PriorityQueue](exercise/queue.py) class with the following specs:
 
 - Users can push items with a priority to the queue
 - When popping an item from the queue, we get the item with the highest priority. If there are many, we return the oldest.
@@ -86,3 +80,18 @@ We are now going to use the queue we just created as a buffer for client jobs. I
 
 a) Create additional API endpoints to let users push jobs to the job queue
 b) Implement a worker which role will be to pop jobs from the queue and send them to the devices.
+
+## Work Done
+
+- **Question 2**: 
+    - To implement a priority queue, I used heap, as that is the exact same thing. `queue.py` is the file. `heapq` provides a min heap implementation by default.
+    - The values stored in the queue are as tuples: `(-priority, self.time, item)`. 
+    - I stored the priorities as negative values. This means, the jobs with the highest priority will have the least value in the heap, and will be the ones to be popped first, which is the expected result. 
+    - If 2 jobs have same priorities, then those which have the lesser timestamp (`self.time`) will be popped first.
+
+- **Question 1**: I've used Flask Restplus to implement the API, in `routes.py`:
+    - POST /device - This will let us ADD a device to the pool.
+    - DELETE /device - This will let us REMOVE a device to the pool.
+    - POST /job - This will let us ADD a job to the queue.
+    - The `job_model` and `device_model` are used to validate the incoming payload in POST requests.
+
